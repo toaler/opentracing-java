@@ -11,23 +11,12 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package io.opentracing.noop;
+package io.opentracing.propagation;
 
-import io.opentracing.Span;
-import io.opentracing.Tracer;
+import java.util.Map;
 
-public class NoopTracer implements Tracer {
-
-    @Override
-    public SpanBuilder buildSpan(String operationName) {
-        return NoopSpanBuilder.Instance;
-    }
-
-    @Override
-    public <T> void inject(Span span, T carrier) {}
-
-    @Override
-    public <T> SpanBuilder join(T carrier) {
-        return NoopSpanBuilder.Instance;
-    }
+/**
+ *
+ */
+interface TextFormatInjector extends Injector<Map> {
 }
